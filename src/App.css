@@ -1,38 +1,102 @@
-.App {
+body {
+  background-image: url("https://images.unsplash.com/photo-1604259011171-2343696f776b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+  background-color: #de5816;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  background-color: rgba(255, 255, 255, 0.75);
+  width: 600px;
+  padding: 1em;
+  min-height: 60vh;
+  border-radius: 1em;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+h1 {
+  font-family: 'Vujahday Script', cursive;
+  font-size: 3em;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h4 {
+  font-family: 'Noto Sans', sans-serif;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.crossed {
+  text-decoration: line-through 2px #de3b3b;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.removed {
+  display: none;
+}
+
+ul, li {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1em;
+  list-style-image: url('https://images.vexels.com/media/users/3/132448/isolated/lists/baf01fb517749ccf4e1215d7576fe262-tennis-ball.png');
+  margin: 5px 0;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  position: relative;
+}
+
+.add {
+  background: #a3b954;
+  border: 1mm solid #b1c46e;
+}
+
+.delete {
+  background: #e35959;
+  border: 1mm solid #e97c7c;
+}
+
+.btn {
+  cursor: pointer;
+  font-family: 'Noto Sans', sans-serif;
+  padding: 10px;
+  width: 7em;
   color: white;
+  font-size: 1em;
+  border-radius: 1em;
+  margin: 1em;
 }
 
-.App-link {
-  color: #61dafb;
+input {
+  flex: .75;
+  padding: 0.5em;
+  margin: 1em;
+  font-family: 'Noto Sans', sans-serif;
+  border-radius: 1em;
+  border: none;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+::placeholder {
+  text-align: center;
 }
