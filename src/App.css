@@ -13,7 +13,9 @@ body {
 
 .app {
   background-color: rgba(255, 255, 255, 0.75);
-  width: 600px;
+  width: 85vw;
+  max-width: 650px;
+  margin: auto;
   padding: 1em;
   min-height: 60vh;
   border-radius: 1em;
@@ -41,10 +43,18 @@ h4 {
 }
 
 .crossed {
-  text-decoration: line-through 2px #de3b3b;
-  -webkit-text-decoration: line-through 2px #de3b3b;
-  -moz-text-decoration: line-through 2px #de3b3b;
-  -ms-text-decoration: line-through 2px #de3b3b;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #de3b3b;
+  -webkit-text-decoration: line-through;
+  -webkit-text-decoration-thickness: 2px;
+  -webkit-text-decoration-color: #de3b3b;
+  -moz-text-decoration: line-through;
+  -moz-text-decoration-thickness: 2px;
+  -moz-text-decoration-color: #de3b3b;
+  -ms-text-decoration: line-through;
+  -ms-text-decoration-thickness: 2px;
+  -ms-text-decoration-color: #de3b3b;
 }
 
 .removed {
