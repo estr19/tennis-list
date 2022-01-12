@@ -24,15 +24,26 @@ export class Tennis extends Component {
     }
     else {
       let listArray = this.state.groceryList;
-    listArray.push(input);
-    this.setState({groceryList: listArray, userInput: ''});
+      listArray.push(input);
+      this.setState({groceryList: listArray, userInput: ''});
     }
   }
 
-  // crossedOut(e) {
-  //   const li = e.target;
-  //   li.classList.toggle('crossed');
-  // }
+  crossedOut(e) {
+    const li = e.target;
+    li.classList.toggle('crossed');
+    let listArray = this.state.groceryList;
+    listArray.splice(listArray.indexOf(e.target.innerText), 1);
+    this.setState({
+      groceryList: listArray
+    })
+  }
+
+  delOneItem(e) {
+    let ToDoArray = this.state.groceryList;
+    ToDoArray.splice(e.index, 1);
+    this.setState({ToDoList: ToDoArray});
+  }
 
   deleteAll() {
     let listArray = this.state.groceryList;
@@ -44,27 +55,26 @@ export class Tennis extends Component {
     e.preventDefault();
   }
 
-  handleClick(e) {
-    switch (e.detail) {
-      case 1:
-        const li = e.target;
-        li.classList.toggle('crossed');
-        // console.log("click");
-        break;
-      case 2:
-        const lii = e.target;
-        // lii.classList.remove('crossed');
-        lii.classList.add('removed');
-        // console.log("double click");
-        break;
-      // case 3:
-      //   const liii = e.target;
-      //   liii.classlist.add('framed');
-      //   // console.log("triple click");
-      //   break;
-      default:
-    }
-  };
+  // handleClick(e) {
+  //   switch (e.detail) {
+  //     case 1:
+  //       const li = e.target;
+  //       li.classList.toggle('crossed');
+  //       console.log(li.indexOf());
+  //       // console.log("click");
+  //       break;
+  //     case 2:
+  //       const lii = e.target;
+  //       lii.classList.add('removed');
+  //       break;
+  //     // case 3:
+  //     //   const liii = e.target;
+  //     //   liii.classlist.add('framed');
+  //     //   // console.log("triple click");
+  //     //   break;
+  //     default:
+  //   }
+  // };
 
   render() {
     return(
@@ -83,7 +93,8 @@ export class Tennis extends Component {
           <div className='container'>
             <ul id="list">
               {this.state.groceryList.map((item, index) => (
-                <li id='paragraph' onClick={this.handleClick} key={index}>&nbsp;{item}</li>
+                <li key={index} onDoubleClick={(e) => this.delOneItem({index})} onClick={this.crossedOut}>&nbsp;{item}</li>
+                // <li onClick={this.handleClick} key={index}>&nbsp;{item}</li>
               ))}
             </ul>
           </div>
