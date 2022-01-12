@@ -42,28 +42,43 @@ h4 {
 
 .crossed {
   text-decoration: line-through 2px #de3b3b;
+  -webkit-text-decoration: line-through 2px #de3b3b;
+  -moz-text-decoration: line-through 2px #de3b3b;
+  -ms-text-decoration: line-through 2px #de3b3b;
 }
 
 .removed {
   display: none;
 }
 
-ul, li {
+/* .framed {
+  border: 1px solid black;
+} */
+
+#list {
   font-family: 'Noto Sans', sans-serif;
   font-size: 1em;
-  list-style-image: url('https://images.vexels.com/media/users/3/132448/isolated/lists/baf01fb517749ccf4e1215d7576fe262-tennis-ball.png');
-  margin: 5px 0;
+  /* margin: 5px 0; */
+  padding: 0;
+  margin: 5px 0 5px 32px;
+  line-height: 1.5;
+  text-align: center;
 }
 
-ul {
-  padding: 0;
-}
+li:before {
+  content: '\1F3BE'; /* url('/src/bullet-removebg-preview.png') */
+  margin-left: -20px;
+} 
 
 li {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  position: relative;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1em;
+  margin: 5px 0;
+  /* list-style-type: none; url('/src/bullet-removebg-preview.png') !important; */
 }
 
 .add {
@@ -99,4 +114,11 @@ input {
 
 ::placeholder {
   text-align: center;
+}
+
+.paragraph {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }

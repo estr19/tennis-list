@@ -2,7 +2,6 @@ import React from 'react';
 import { Component } from 'react';
 import Swal from 'sweetalert2'
 import alert from 'sweetalert2-react-content'
-import check from './bullet-removebg-preview.png';
 
 export class Tennis extends Component {
   state = {
@@ -58,6 +57,11 @@ export class Tennis extends Component {
         lii.classList.add('removed');
         // console.log("double click");
         break;
+      // case 3:
+      //   const liii = e.target;
+      //   liii.classlist.add('framed');
+      //   // console.log("triple click");
+      //   break;
       default:
     }
   };
@@ -77,12 +81,9 @@ export class Tennis extends Component {
             <button className='btn add' type="submit" onClick={() => {this.addItem(this.state.userInput)}}>Add</button>
           </div>
           <div className='container'>
-            <ul>
+            <ul id="list">
               {this.state.groceryList.map((item, index) => (
-                <li onClick={this.handleClick} key={index}>
-                  <img src={check} alt='checkmark' />&nbsp;
-                  {item}&nbsp;
-                </li>
+                <li id='paragraph' onClick={this.handleClick} key={index}>&nbsp;{item}</li>
               ))}
             </ul>
           </div>
