@@ -54,21 +54,13 @@ export class Tennis extends Component {
     let complete = this.state.completedList;
     switch (e.detail) {
       case 1:
-        let pushedDown = li.innerText;
-        let index = doneList.indexOf(pushedDown);
-        let newIndex = doneList.length - 1;
-        console.log(index);
-        console.log(newIndex);
-        console.log(doneList[index]);
-        complete.push(pushedDown);
+        complete.push(li.innerText);
         doneList.splice(doneList.indexOf(li.innerText), 1);
         this.setState({
           tennisList: doneList
         })
-        console.log(doneList);
         break;
       case 2:
-        console.log(doneList);
         doneList.splice(doneList.indexOf(li.innerText), 1);
         this.setState({
           completedList: complete
@@ -84,21 +76,13 @@ export class Tennis extends Component {
     let complete = this.state.completedList;
     switch (e.detail) {
       case 1:
-        let pushedUp = li.innerText;
-        let index = complete.indexOf(pushedUp);
-        let newIndex = complete.length - 1;
-        console.log(index);
-        console.log(newIndex);
-        console.log(complete[index]);
-        doneList.push(pushedUp);
+        doneList.push(li.innerText);
         complete.splice(complete.indexOf(li.innerText), 1);
         this.setState({
           completedList: complete
         })
-        console.log(doneList);
         break;
       case 2:
-        console.log(complete);
         complete.splice(complete.indexOf(li.innerText), 1);
         this.setState({
           tennisList: doneList
@@ -123,14 +107,16 @@ export class Tennis extends Component {
             <button className='btn add' type="submit" onClick={() => {this.addItem(this.state.userInput)}}>Add</button>
           </div>
           <div id='bullets' className='container'>
+          <span id='listSpan'><h3>I still need to get this:</h3></span>
             <ul id='list'>
               {this.state.tennisList.map((item, index) => (
-                <li className='paragraph' onClick={this.handleClick} key={index}>{item}</li>
+                <li className='paragraph' onClick={this.handleClick} key={index}>&nbsp;{item}</li>
               ))}
             </ul>
+            <span id='doneSpan'><h3>Woo-hoo, I'm done with these!</h3></span>
             <ul id='done'>
               {this.state.completedList.map((item, index) => (
-                <li className='paragraph' onClick={this.handleDoneClick} key={index}>{item}</li>
+                <li className='paragraph' onClick={this.handleDoneClick} key={index}>&nbsp;{item}</li>
               ))}
             </ul>
           </div>
