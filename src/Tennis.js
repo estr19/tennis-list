@@ -103,7 +103,7 @@ export class Tennis extends Component {
           <div className='container'>
             <input onChange={(e) => {this.onChangeEvent(e.target.value)}}
                   type='text'
-                  placeholder='What "tools for success" do you need?'
+                  placeholder='What do you need to get done today?'
                   value={this.state.userInput} />
           </div>
           <div className='container'>
