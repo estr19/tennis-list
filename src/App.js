@@ -10,7 +10,7 @@ function App() {
         <img src={court} width="300px" alt="groceries" />
       </div>
       <h1 className='container'>Are you ready for your next match?</h1>
-      <h4>Click once to cross the item off the list and move it to the bottom, double-click to remove the item.</h4>
+      <h4>Click to cross the item off the list and move it to the bottom.</h4>
       <Tennis />
     </div>
   );

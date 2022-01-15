@@ -29,6 +29,7 @@ export class Tennis extends Component {
       })
     }
     else {
+      document.querySelector("#listSpan").style.display = "block";
       let listArray = this.state.tennisList;
       listArray.push(input);
       this.setState({tennisList: listArray, userInput: ''});
@@ -42,6 +43,8 @@ export class Tennis extends Component {
     listArray = [];
     complete = [];
     this.setState({tennisList: listArray, completedList: complete});
+    document.querySelector("#listSpan").style.display = "none";
+    document.querySelector("#doneSpan").style.display = "none";
   }
 
   submitForm(e) {
@@ -54,18 +57,19 @@ export class Tennis extends Component {
     let complete = this.state.completedList;
     switch (e.detail) {
       case 1:
+        document.querySelector("#doneSpan").style.display = "block";
         complete.push(li.innerText);
         doneList.splice(doneList.indexOf(li.innerText), 1);
         this.setState({
           tennisList: doneList
         })
         break;
-      case 2:
-        doneList.splice(doneList.indexOf(li.innerText), 1);
-        this.setState({
-          completedList: complete
-        })
-        break;
+      // case 2:
+      //   doneList.splice(doneList.indexOf(li.innerText), 1);
+      //   this.setState({
+      //     completedList: complete
+      //   })
+      // break;
       default:
     }
   };
@@ -82,12 +86,12 @@ export class Tennis extends Component {
           completedList: complete
         })
         break;
-      case 2:
-        complete.splice(complete.indexOf(li.innerText), 1);
-        this.setState({
-          tennisList: doneList
-        })
-        break;
+      // case 2:
+      //   complete.splice(complete.indexOf(li.innerText), 1);
+      //   this.setState({
+      //     tennisList: doneList
+      //   })
+      //  break;
       default:
     }
   };
@@ -107,16 +111,17 @@ export class Tennis extends Component {
             <button className='btn add' type="submit" onClick={() => {this.addItem(this.state.userInput)}}>Add</button>
           </div>
           <div id='bullets' className='container'>
-          <span id='listSpan'><h3>I still need to get this:</h3></span>
+            <br></br>
+          <span id='listSpan'><h3>I still need to do this:</h3></span>
             <ul id='list'>
               {this.state.tennisList.map((item, index) => (
-                <li className='paragraph' onClick={this.handleClick} key={index}>&nbsp;{item}</li>
+                <li className='paragraph' onClick={this.handleClick} key={index}>{item}</li>
               ))}
             </ul>
             <span id='doneSpan'><h3>Woo-hoo, I'm done with these!</h3></span>
             <ul id='done'>
               {this.state.completedList.map((item, index) => (
-                <li className='paragraph' onClick={this.handleDoneClick} key={index}>&nbsp;{item}</li>
+                <li className='paragraph' onClick={this.handleDoneClick} key={index}>{item}</li>
               ))}
             </ul>
           </div>
